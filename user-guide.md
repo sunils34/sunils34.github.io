@@ -1,7 +1,7 @@
 # User Guide for Sunil Sadasivan
 
 
-_This is a User Guide for Sunil Sadasivan.  [Based off this template.](https://medium.com/@cassierobinson/a-user-manual-for-me-d3a851fbc694)
+_This is a User Guide for Sunil Sadasivan.  [Based off this template.](https://medium.com/@cassierobinson/a-user-manual-for-me-d3a851fbc694_
 
 _Disclaimer: While this may appear to be rigid, defined and stated as fact, I’ve found my own preferences and working styles more dynamic and subject to change (sometimes rapidly) as I evolve through new experiences and relationships._  
 
