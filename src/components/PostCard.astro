@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { title, description, published, readingTime, tags, heroImage } = post.data;
+const date = published.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+<article class:list={['post-card', { featured }]} data-reveal>
+  <a class="post-card-link" href={`/blog/${post.id}/`} aria-label={`Read ${title}`}>
+    {heroImage && (
+      <div class="post-card-image">
+        <img src={heroImage} alt="" loading="lazy" decoding="async" />
+      </div>
+    )}
+    <div class="post-card-copy">
+      <div class="post-meta">
+        <time datetime={published.toISOString()}>{date}</time>
+        <span aria-hidden="true">·</span>
+        <span>{readingTime} min read</span>
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <div class="post-card-bottom">
+        <span class="tag">{tags[0]?.replaceAll('-', ' ') || 'Essay'}</span>
+        <span class="read-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+  </a>
+</article>

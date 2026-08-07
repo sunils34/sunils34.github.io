@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PostCard from '@/components/PostCard.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+
+<BaseLayout
+  title="Writing"
+  description="Essays by Sunil Sadasivan on engineering, leadership, startups, systems, civic technology, and the lessons that connect them."
+>
+  <section class="blog-hero shell">
+    <p class="kicker" data-reveal>Writing · 2014–2018</p>
+    <h1 data-reveal>Ideas worth<br /><em>carrying forward.</em></h1>
+    <p data-reveal>
+      Thirteen essays from the archive—on engineering, leadership, systems, startups,
+      civic technology, and becoming a little better along the way.
+    </p>
+  </section>
+  <section class="blog-index shell">
+    <div class="blog-count" data-reveal>
+      <span>{String(posts.length).padStart(2, '0')}</span>
+      <p>Essays<br />and reflections</p>
+    </div>
+    <div class="posts-grid archive-grid">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

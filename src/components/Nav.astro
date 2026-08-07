@@ -1,0 +1,25 @@
+---
+const path = Astro.url.pathname;
+---
+
+<header class="site-header" data-header>
+  <a class="wordmark" href="/" aria-label="Sunil Sadasivan, home">
+    <span>sunil</span><i>.</i>
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+    <a class:list={{ active: path.startsWith('/blog') }} href="/blog/">Writing</a>
+  </nav>
+  <a class="nav-cta" href="mailto:sunil@libralabs.dev">
+    <span>Say hello</span>
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" /></svg>
+  </a>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 20);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+</script>

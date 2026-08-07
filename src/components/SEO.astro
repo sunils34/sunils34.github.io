@@ -1,0 +1,58 @@
+---
+import { profile } from '@/data/profile';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  published?: Date;
+  updated?: Date;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description = profile.description,
+  image = '/og-default.png',
+  canonical,
+  type = 'website',
+  published,
+  updated,
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const pageTitle = title ? `${title} · ${profile.name}` : `${profile.name} · ${profile.title}`;
+const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content={profile.name} />
+<meta name="generator" content={Astro.generator} />
+<meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" type="application/rss+xml" title={`${profile.name} — Writing`} href="/rss.xml" />
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={profile.name} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={title ? `${title} by ${profile.name}` : profile.name} />
+<meta property="og:locale" content="en_US" />
+{published && <meta property="article:published_time" content={published.toISOString()} />}
+{updated && <meta property="article:modified_time" content={updated.toISOString()} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@sunils34" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+{jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

@@ -1,0 +1,17 @@
+---
+import { profile } from '@/data/profile';
+---
+
+<footer class="site-footer">
+  <div>
+    <a class="footer-mark" href="/">sunil<i>.</i></a>
+    <p>Building useful things for people doing consequential work.</p>
+  </div>
+  <div class="footer-links" aria-label="Social links">
+    <a href={profile.social.linkedin} rel="me">LinkedIn</a>
+    <a href={profile.social.github} rel="me">GitHub</a>
+    <a href={profile.social.x} rel="me">X</a>
+    <a href="/rss.xml">RSS</a>
+  </div>
+  <p class="copyright">© {new Date().getFullYear()} {profile.name}</p>
+</footer>

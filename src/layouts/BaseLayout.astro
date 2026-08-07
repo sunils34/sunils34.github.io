@@ -1,0 +1,65 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/newsreader';
+import Nav from '@/components/Nav.astro';
+import Footer from '@/components/Footer.astro';
+import SEO from '@/components/SEO.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  published?: Date;
+  updated?: Date;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0b1020" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <SEO {...Astro.props} />
+    <ClientRouter />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-noise" aria-hidden="true"></div>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const initReveals = () => {
+        const elements = document.querySelectorAll<HTMLElement>('[data-reveal]');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          elements.forEach((element) => element.classList.add('revealed'));
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12 },
+        );
+        elements.forEach((element) => observer.observe(element));
+      };
+      initReveals();
+      document.addEventListener('astro:page-load', initReveals);
+    </script>
+  </body>
+</html>

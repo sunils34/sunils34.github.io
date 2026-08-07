@@ -1,0 +1,27 @@
+{
+  "name": "sunilsadasivan.com",
+  "private": true,
+  "type": "module",
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "check:links": "node scripts/check-links.mjs",
+    "import:medium": "node scripts/import-medium.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource-variable/newsreader": "^5.2.8",
+    "astro": "^7.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "fast-xml-parser": "^5.2.5",
+    "turndown": "^7.2.1",
+    "typescript": "^5.9.2"
+  }
+}
