@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sunil-site",
+  "compatibility_date": "2026-08-30",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  },
+  // Routes, not custom domains: they intercept requests on the zone's existing
+  // proxied records, so no DNS is touched and rollback is deleting the route.
+  "routes": [
+    { "pattern": "sunilsadasivan.com/*", "zone_name": "sunilsadasivan.com" },
+    { "pattern": "www.sunilsadasivan.com/*", "zone_name": "sunilsadasivan.com" },
+    { "pattern": "sunil.dev/*", "zone_name": "sunil.dev" },
+    { "pattern": "www.sunil.dev/*", "zone_name": "sunil.dev" }
+  ]
+}

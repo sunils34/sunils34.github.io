@@ -1,0 +1,11 @@
+{
+  "name": "sunilsadasivan-com",
+  "private": true,
+  "description": "Personal site. The site itself has no runtime dependencies; this manifest exists only to build the wasm module.",
+  "scripts": {
+    "build:wasm": "node tools/build-wasm.mjs"
+  },
+  "devDependencies": {
+    "wabt": "^1.0.39"
+  }
+}

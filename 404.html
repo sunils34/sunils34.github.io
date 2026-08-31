@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Not found · Sunil Sadasivan</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/avatar.png">
+    <script>
+      /* Applied before first paint so a stored choice never flashes. */
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <button class="theme-toggle" type="button" hidden aria-label="Switch theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.7v2.1M12 19.2v2.1M4.4 4.4l1.5 1.5M18.1 18.1l1.5 1.5M2.7 12h2.1M19.2 12h2.1M4.4 19.6l1.5-1.5M18.1 5.9l1.5-1.5"/>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.4 14.7A8.7 8.7 0 0 1 9.3 3.6a8.7 8.7 0 1 0 11.1 11.1Z"/>
+      </svg>
+    </button>
+    <main class="wide">
+      <div class="glyph">
+        <p class="four">404</p>
+      </div>
+      <p class="title">Page not found</p>
+      <p class="back"><a href="/">Home</a></p>
+    </main>
+    <script src="/static/particles.js" defer></script>
+    <script src="/static/notfound.js" defer></script>
+    <script src="/static/theme.js" defer></script>
+  </body>
+</html>

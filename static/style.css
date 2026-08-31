@@ -1,119 +1,244 @@
+:root {
+  --bg: #fdfdfc;
+  --fg: #1a1a1a;
+  --muted: #8a8a85;
+  --rule: #e6e6e1;
+  --sun: none;
+  --moon: block;
+}
+
+/* The system preference is the default; an explicit choice overrides it. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111110;
+    --fg: #ededea;
+    --muted: #7a7a75;
+    --rule: #2a2a28;
+    --sun: block;
+    --moon: none;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #111110;
+  --fg: #ededea;
+  --muted: #7a7a75;
+  --rule: #2a2a28;
+  --sun: block;
+  --moon: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: Helvetica;
-  font-size: 13px;
-}
-
-#menu {
-  float: right;
-  margin-top: 30px;
-  width: 150px;
-  font-family: "Myriad Pro", "Helvetica Neue", Helvetica;
-}
-
-#menu .title {
-}
-
-#menu ul {
-  list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 24px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-#menu li {
+.title,
+.bio dt,
+.fingerprint,
+.links,
+.back,
+.sep {
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-#menu li a {
-  display: inline-block;
-  color: #0864c7;
+main {
+  width: 100%;
+  max-width: 360px;
+  padding: 64px 0;
+  text-align: center;
 }
 
-#left {
-  height: 1px;
-  float: left;
+.portrait {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   display: block;
-  min-width: 0;
-  overflow: hidden;
-  width: 200px;
+  transition: opacity 0.4s ease;
+}
+
+/* Once the points take over, the source steps aside. */
+.is-gl .avatar,
+.is-gl .four {
+  opacity: 0;
+}
+
+/* The engine sizes and offsets each canvas itself. */
+.particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+}
+
+h1 {
+  margin: 24px 0 0;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.title {
+  margin: 7px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.bio {
+  margin: 22px 0 0;
+}
+
+.bio dt {
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bio dd {
+  margin: 3px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bio dd + dt {
+  margin-top: 14px;
+}
+
+.links {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.links li + li {
+  margin-top: 10px;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--fg);
+}
+
+.sep {
+  color: var(--muted);
+  margin: 0 6px;
+}
+
+.fingerprint {
+  margin: 28px 0 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  word-spacing: 0.15em;
+}
+
+/* --- 404 --- */
+
+main.wide {
+  max-width: 460px;
+}
+
+.glyph {
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+
+.four {
   margin: 0;
+  font-size: 104px;
+  line-height: 150px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  transition: opacity 0.4s ease;
+}
+
+.back {
+  margin: 30px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* --- theme toggle --- */
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: color 0.2s ease;
 }
 
-#content {
-  margin-top: 15px;
-  float: left;
-  width: 500px;
+.theme-toggle[hidden] {
+  display: none;
 }
 
-#content h1, #content h2, #content h3 {
-  font-family: "Myriad Pro", "Helvetica Neue", Helvetica;
-  margin: 0;
+.theme-toggle:hover {
+  color: var(--fg);
 }
 
-#content .byline, #content .byline a, #content .note {
-  font-size: 10px;
-  color: #aaa;
+.theme-toggle:focus-visible {
+  outline: 1px solid var(--rule);
+  outline-offset: 2px;
 }
 
-#content p, #content ul {
-  color: #333;
-  line-height: 18px;
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
 }
 
-#content sup.note {
-  display: inline-block;
-  margin-top: -5px;
+.theme-toggle .icon-sun {
+  display: var(--sun);
 }
 
-#content p.notop {
-  margin-top: 0;
-}
-
-#content .thanks {
-  margin-top: 2em;
-  padding-top: 1em;
-  border-top: 1px solid #eee;
-  margin-bottom: 4em;
-  font-size: smaller;
-  color: #777;
-}
-
-#content .thanks a {
-  color: #777;
-}
-
-#content li {
-  margin-bottom: 0.7em;
-}
-
-.post + .post {
-  margin-top: 50px;
-}
-
-.gr_title {
-  font-size: smaller;
-}
-
-
-.gr_grid_container {
-  /* customize grid container div here. eg: width: 500px; */
-}
-
-.gr_grid_book_container {
-  /* customize book cover container div here */
-  float: left;
-  width: 39px;
-  height: 60px;
-  padding: 0px 0px;
-  overflow: hidden;
-}
-
-#gr_grid_widget_1482978475 {
-  margin-top: 20px;
-  max-width: 450px
-}
-
-
-#gr_grid_widget_1482978475 h2 {
-  font-size: 13px;
-  font-family: Helvetica;
+.theme-toggle .icon-moon {
+  display: var(--moon);
 }

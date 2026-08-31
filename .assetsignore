@@ -1,0 +1,17 @@
+wrangler.jsonc
+.assetsignore
+README.md
+CLAUDE.md
+.git
+.gitignore
+node_modules
+.wrangler
+package.json
+package-lock.json
+src
+tools
+wrangler.*.jsonc
+
+# Scratch file from the old site; contains a personal phone number.
+# Tracked in git, but not served. Delete this line to publish it again.
+test.html
