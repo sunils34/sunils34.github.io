@@ -4,6 +4,8 @@ README.md
 CLAUDE.md
 .git
 .gitignore
+.astro
+.claude
 node_modules
 .wrangler
 package.json
