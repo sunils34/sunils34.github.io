@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Managing Systems · Sunil Sadasivan</title>
+    <meta name="description" content="Rasmussen's model of accident boundaries, operating points and marginal boundaries, and how it applies to running teams, companies and software.">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/avatar.png">
+    <link rel="canonical" href="https://sunilsadasivan.com/writing/managing-systems/">
+    <script>
+      /* Applied before first paint so a stored choice never flashes. */
+      try {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <button class="theme-toggle" type="button" hidden aria-label="Switch theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.7v2.1M12 19.2v2.1M4.4 4.4l1.5 1.5M18.1 18.1l1.5 1.5M2.7 12h2.1M19.2 12h2.1M4.4 19.6l1.5-1.5M18.1 5.9l1.5-1.5"/>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.4 14.7A8.7 8.7 0 0 1 9.3 3.6a8.7 8.7 0 1 0 11.1 11.1Z"/>
+      </svg>
+    </button>
+    <main class="post">
+      <p class="crumb"><a href="/">Sunil Sadasivan</a></p>
+      <h1>Managing Systems</h1>
+      <p class="meta">Originally posted on <a href="https://medium.com/@sunils34/managing-systems-ecbf161066cf">Medium</a>, January 5, 2017.</p>
+
+      <article class="body">
+        <p>I find myself coming back to watch this talk by Richard Cook nearly every 3 months.</p>
+
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/PGLYEDpNu60" title="Richard Cook: How Complex Systems Fail" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="video-link"><a href="https://www.youtube.com/watch?v=PGLYEDpNu60">Watch on YouTube</a></p>
+
+        <p>I highly recommend watching this video when you have the chance. It&rsquo;s an entertaining talk and it&rsquo;s shaped so much of how I think and operate complex systems.</p>
+
+        <p>In the video, Cook describes the properties of complex systems and talks about how all organizations and people typically act and react to system failures. He uses Rasmussen&rsquo;s <a href="http://www.sciencedirect.com/science/article/pii/S0925753597000520">Risk Management in a Dynamic Society: A Modelling Problem</a>.</p>
+
+        <figure>
+          <img class="diagram" src="/static/rasmussen.png" alt="Rasmussen's model: a systems operating point sits inside three boundaries (economic failure, unacceptable workload, performance failure). Gradients push the operating point away from the economic and workload boundaries toward the performance boundary; an error margin and a counter gradient from safety efforts push back, and normalization of deviance moves the perceived boundary outward." width="840" height="493">
+        </figure>
+
+        <p>This seems complex, but it&rsquo;s actually quite simple, and I believe it&rsquo;s the key to being a successful strategic thinker in systems and organizations. This model works in every system I can think of &mdash; applications and products, computing systems of limited resources, and people, teams and large-scale organizations.</p>
+
+        <h3>Accident Boundaries and the Operating Point</h3>
+
+        <p>In any system, there are failure or <em>accident boundaries</em> that a system cares about. For instance, in building a startup there are typically product, engineering, finance, marketing, people/HR, customer support and sales metrics that teams care about.</p>
+
+        <p>Within the <em>accident boundaries</em> there&rsquo;s an <em>operating point</em>, which describes how balanced the system is and what it&rsquo;s biased towards.</p>
+
+        <p>The operating point is constantly in motion and is often pushed close to a failure boundary. For instance, if a company is too aggressive in focusing on growth, it may push product teams to ship too early, thus crossing a Product Quality <em>failure boundary</em>. Once a team recognizes that the operating point has passed the Product Quality boundary of failure, it&rsquo;ll apply a <em>counter gradient</em> to ensure this doesn&rsquo;t happen again.</p>
+
+        <p>It&rsquo;s often in the nature of reacting to crossing an accident boundary that teams push the counter gradient too far in the other direction. For instance, in the case when a team crosses a Product Quality boundary, they may be likely to push back against Growth/Sales much more than may be needed, and it puts the operating point closer to the growth boundary of failure. If the operating point crosses this boundary, then an organization may be in business trouble.</p>
+
+        <p>Like this, there are many pendulum swings of the operating point within a complex system of sensing and adapting.</p>
+
+        <p>The problem is we never truly know where an accident boundary is &mdash; we only know when we&rsquo;ve crossed it. (i.e. the site is down, a great employee just left, we lost a big customer, etc.)</p>
+
+        <h3>Marginal Boundaries</h3>
+
+        <p>In order to improve the resiliency of a system it&rsquo;s important to set up <em>marginal boundaries</em> &mdash; a signal, alert or safety measure to keep an operating point away from an accident boundary.</p>
+
+        <p>Setting up marginal boundaries is incredibly important for someone operating a system to sleep well at night &mdash; knowing there are things in place to prevent the operating point from crossing an accident boundary. Marginal boundaries also help you focus on a different part of the system without worrying about an accident boundary that has a good marginal boundary set up.</p>
+
+        <h3>Normalization of Deviance</h3>
+
+        <p>So why, after setting up marginal boundaries, do we seem to still see systems fail? Richard Cook describes that over time, the operating point will test the marginal boundaries. For instance, after a process or rule has been in place for a while, we forget the original reasoning for why it was set up. And we&rsquo;ll decide we can do without a certain measure.</p>
+
+        <p>That means it becomes nearly guaranteed that when you&rsquo;re not focusing on a part of the system, the operating point will find ways to push past the marginal boundaries and closer to the accident boundary. And only after an accident happens do we typically see a corrective action.</p>
+
+        <p>Systems are naturally poised to fail, and only over time, through continuous learning and improving the marginal boundaries, does a system become more and more resilient.</p>
+
+        <h2>Crossing Accident Boundaries</h2>
+
+        <p>Every organization I&rsquo;ve been a part of (an organizational system) has crossed accident boundaries many, many times. Each time, the goal is to learn from it, sense and react, and push the operating point the other way. These are two of the biggest failures I&rsquo;ve seen companies go through, and what there is to learn from them:</p>
+
+        <ul>
+          <li><strong>Getting hacked</strong> (like <a href="https://open.buffer.com/buffer-has-been-hacked-here-is-whats-going-on/">the one I dealt with at Buffer</a>). No one expects their systems to be vulnerable, and no one knows where the accident boundary is for keeping their systems secure. A small startup doesn&rsquo;t expect its systems to be the target of a sophisticated, multi-vector attack. After an experience like that, and after learning the current state of web security, the operating point gets pushed <a href="https://medium.com/@sunils34/how-to-think-about-security-at-startups-its-a-never-ending-job-a294cb7a2fc3">far away from that boundary</a> (a good thing). Best practices and monitoring get set up to improve the focus on security and ensure that boundary is never crossed again. Some of these processes may come to be viewed as a burden by those who haven&rsquo;t experienced a hack before. The challenge is that no organization will ever truly know where the accident boundary for security is. So it&rsquo;s important to sense and react when the operating point is close to a marginal boundary for security. It&rsquo;s never a guarantee that things are completely safe, so it&rsquo;s better to continue adding more and more monitoring and rules, enforce best practices and assume the worst. Though you still have to be mindful not to cross a productivity, usability and convenience accident boundary.</li>
+          <li><strong>Over-hiring and having to make layoffs.</strong> This is the mistake of not knowing where the economic boundary of failure is for the business, and not forecasting the hiring plan against growth well enough. Once a company recognizes it has crossed this boundary of failure, it has to put in counter gradients like layoffs, cutting back perks, etc. Those actions push the operating point away from the economic boundary of failure and closer to the accident boundary that makes the company not a great place to work, thus risking voluntary churn. That is something to be so mindful of, and it means keeping a close eye on the marginal boundary there (through regular team surveys, manager 1&ndash;1s, encouraging feedback, CEO AMAs, etc.). The lasting fix is setting up better marginal boundaries to ensure there is key oversight on the finance boundary, including hiring someone to own it, like a VP of Finance.</li>
+        </ul>
+
+        <h2>Trade-off thinking</h2>
+
+        <p>I&rsquo;ve found building an organization very similar to building complex web or mobile applications. Every day as an engineer, you&rsquo;ll make hundreds of decisions among trade-offs. That&rsquo;s similar with management and organizational strategy. Of course, the impact of failures is an order of magnitude worse &mdash; making mistakes that affect people&rsquo;s lives is much worse than an app going down (in most cases).</p>
+
+        <p>Making trade-offs comes naturally to engineers who build systems. There&rsquo;s rarely a situation where there&rsquo;s a right and a wrong answer. Instead, you continually make decisions that have benefits and pitfalls. (Angular vs React&hellip; AWS vs GKE vs self-hosting, SQS vs RabbitMQ.)</p>
+
+        <p>Management is similar. There&rsquo;s rarely a right and wrong answer. Building systems is great practice for management and trade-off thinking. It&rsquo;s why I strive to ensure the Engineering Managers I work with (and myself) code. I believe coding brings a level of comfort in making trade-off decisions.</p>
+
+        <h2>Monitoring and Alerts</h2>
+
+        <p>A key concept I&rsquo;ve taken away from building systems is monitoring and alerting. When I first started building web-app systems, the monitoring and alerting offering landscape was primitive. I would simply check Twitter or our support inbox to see if there was a trend, or check if we were down. I had several Twitter searches following a similar form to: &ldquo;to:@ourapp down.&rdquo;</p>
+
+        <p>Not a single hour of the day would go by that I wouldn&rsquo;t check that Twitter search.</p>
+
+        <p>Discovering alerting through tools like AWS CloudWatch and PagerDuty was a non-linear step in my systems understanding. Now I had a way to assess and set up marginal boundaries of failure, and would receive a notification if any part of the system was off.</p>
+
+        <p>I&rsquo;ve tried to take the same philosophies into management. I try to assess and predict the accident boundaries and set up marginal boundaries as oversight. I&rsquo;ve on a few occasions had more than 10 people reporting to me &mdash; at that point it&rsquo;s definitely not possible to give equal attention to each person, however I would try to encourage everyone to share regular thoughts with me in Slack, and I&rsquo;d try to create a culture on my team of speaking up when something is off. I&rsquo;d set up dashboards and alerts on quantifiable metrics (customer support ticket numbers, bug numbers, budgets). In our weekly exec meeting, we&rsquo;d report and review those numbers. Much of the purpose of those weekly exec meetings was for us to come together and assess where exactly the operating point was within the company&rsquo;s system of marginal boundaries.</p>
+
+        <p>I&rsquo;ll never know where all the accident boundaries are, but when an accident does happen, I know it&rsquo;s part of the ballgame and I&rsquo;ll ensure we apply counter gradients and improve our marginal boundaries for the next time.</p>
+
+        <p>When you&rsquo;re building a system, whether it&rsquo;s growing a web-app, building a company, providing anesthesia to a patient, or even leading a nation, <em>it&rsquo;s literally a balancing act</em>. I hope this post helps to describe the dynamics and give terms to an abstract but important concept.</p>
+      </article>
+
+      <p class="back"><a href="/">Home</a></p>
+    </main>
+    <script src="/static/theme.js" defer></script>
+  </body>
+</html>
