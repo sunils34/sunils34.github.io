@@ -3,9 +3,14 @@
   "name": "sunil-site",
   "compatibility_date": "2026-08-30",
   "workers_dev": false,
+  "main": "worker.js",
   "assets": {
     "directory": "./",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "binding": "ASSETS",
+    // The worker only exists to redirect http -> https, so it has to see
+    // every request, including ones that match a file.
+    "run_worker_first": true
   },
   // Routes, not custom domains: they intercept requests on the zone's existing
   // proxied records, so no DNS is touched and rollback is deleting the route.

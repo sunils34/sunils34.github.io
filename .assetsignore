@@ -13,3 +13,4 @@ package-lock.json
 src
 tools
 wrangler.*.jsonc
+worker.js
