@@ -345,10 +345,19 @@ main.post {
   height: auto;
 }
 
-/* The diagram is black on white; blend it into whichever ground is showing. */
+/* Diagrams are drawn on white; blend them into whichever ground is showing.
+   The hue rotation undoes the color flip that inverting causes, so a blue
+   line stays blue in the dark theme. */
 .diagram {
-  filter: invert(var(--diagram-invert));
+  filter: invert(var(--diagram-invert)) hue-rotate(calc(var(--diagram-invert) * 180deg));
   mix-blend-mode: var(--diagram-blend);
+}
+
+.body figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
 }
 
 .video {
