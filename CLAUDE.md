@@ -45,4 +45,4 @@ python3 -m http.server 8787
 
 Headless only runs a handful of animation frames, so a screenshot catches the
 intro mid-assembly. To inspect a specific state, copy the site to a scratch dir
-and pin `intro` and `u_time` in `particles.js` there — never in the real files.
+and pin `intro` and `u_time` in `site-webgl.js` there — never in the real files.

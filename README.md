@@ -9,7 +9,7 @@ index.html          home — portrait, bio, links
 404.html            not-found page
 static/style.css    all styles (light + dark, theme-aware tokens)
 static/theme.js     light/dark toggle
-static/particles.js shared WebGL particle engine
+static/site-webgl.js shared WebGL particle engine
 static/portrait.js  samples avatar.png into points
 static/notfound.js  rasterizes "404" into points
 static/avatar.png   source photo
@@ -38,7 +38,7 @@ again.
 
 ### The engine
 
-`particles.js` is one engine used by both pages. Each effect supplies:
+`site-webgl.js` is one engine used by both pages. Each effect supplies:
 
 - **points** — `home` positions in a normalized space (`y = ±1` is `radius` css
   px from the host's center), a color per point, and two random seeds
@@ -59,3 +59,7 @@ WebGL is unavailable, a shader fails to compile, or the canvas can't be read.
 
 Any static host. `404.html` at the root is picked up automatically by GitHub
 Pages, Netlify, and Cloudflare Pages.
+
+## Link icons
+
+Social brand marks are from [Simple Icons v11.15.0](https://github.com/simple-icons/simple-icons/tree/11.15.0), distributed under CC0. They are embedded as SVGs in the homepage and inherit the current theme. The Twitter bird matches the Twitter label; PGP uses a generic key symbol.
