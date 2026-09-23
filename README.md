@@ -62,4 +62,4 @@ Pages, Netlify, and Cloudflare Pages.
 
 ## Link icons
 
-Social brand marks are from [Simple Icons v11.15.0](https://github.com/simple-icons/simple-icons/tree/11.15.0), distributed under CC0. They are embedded as SVGs in the homepage and inherit the current theme. The Twitter bird matches the Twitter label; PGP uses a generic key symbol.
+Social brand marks are from [Simple Icons v11.15.0](https://github.com/simple-icons/simple-icons/tree/11.15.0), distributed under CC0. They are embedded as SVGs in the homepage and inherit the current theme. The X brand mark matches the X label; PGP uses a generic key symbol.
