@@ -462,6 +462,12 @@ main.post {
   margin-top: 0;
 }
 
+.body .post-hero figcaption {
+  text-align: center;
+  font-size: 11px;
+  font-style: italic;
+}
+
 .post-hero a {
   display: block;
   border-bottom: 0;
