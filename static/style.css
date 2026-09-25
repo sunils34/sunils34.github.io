@@ -458,6 +458,15 @@ main.post {
   height: auto;
 }
 
+.body .post-hero {
+  margin-top: 0;
+}
+
+.post-hero a {
+  display: block;
+  border-bottom: 0;
+}
+
 /* Diagrams are drawn on white; blend them into whichever ground is showing.
    The hue rotation undoes the color flip that inverting causes, so a blue
    line stays blue in the dark theme. */
