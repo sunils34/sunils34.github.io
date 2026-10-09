@@ -381,6 +381,69 @@ main.post {
   text-align: left;
 }
 
+.post-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px 0;
+  border-bottom: 0;
+}
+
+.post-nav a > span:last-child {
+  text-align: left;
+}
+
+.post-nav .post-nav-next {
+  grid-column: 2;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.post-nav .post-nav-next > span:last-child {
+  text-align: right;
+}
+
+.post-nav a:hover > span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.post-nav a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+}
+
+.post-nav-label {
+  display: block;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.post-nav + .back {
+  margin-top: 16px;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 12px;
+}
+
+.post-nav + .back a {
+  color: var(--muted);
+  border-bottom: 0;
+}
+
 .crumb {
   margin: 0;
   font-size: 11px;

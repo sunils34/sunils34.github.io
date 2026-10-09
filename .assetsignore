@@ -14,3 +14,4 @@ src
 tools
 wrangler.*.jsonc
 worker.js
+writing/optimism-by-necessity/image-prompt.txt
